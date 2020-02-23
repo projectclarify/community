@@ -37,7 +37,7 @@ const sidebar = [
         title: 'Archive',
         collapsable: true,
         children: [
-          '/project/archive/'
+          '/projects/archive/'
         ]
       }
     ],
