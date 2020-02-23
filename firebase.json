@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "site": "clarify-docs",
+    "public": "_site",
+    "ignore": [
+      "firebase.json",
+      "**/.*"
+    ]
+  }
+}
