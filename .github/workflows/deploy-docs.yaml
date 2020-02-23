@@ -47,7 +47,6 @@ jobs:
         uses: w9jds/firebase-action@master
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-          PROJECT_PATH: docs
         with:
           args: use --add clarify
       - name: Deploy to Firebase
