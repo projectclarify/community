@@ -29,8 +29,9 @@ const sidebar = [
         title: 'Proposals',
         collapsable: true,
         children: [
-          '/projects/proposals/',
-          '/projects/proposals/proposal_template'
+          '/projects/proposals/user_studies_ftw',
+          '/projects/proposals/um_eeg_ssl',
+          '/projects/proposals/image_fec'
         ]
       },
       {
@@ -70,10 +71,11 @@ module.exports = {
       '/community/code_of_conduct': sidebar,
       '/community/how_we_work': sidebar,
       '/projects/': sidebar,
-      '/projects/current/': sidebar,
       '/projects/current/subproject_template/': sidebar,
-      '/projects/proposals/': sidebar,
       '/projects/proposals/proposal_template': sidebar,
+      '/projects/proposals/user_studies_ftw': sidebar,
+      '/projects/proposals/um_eeg_ssl': sidebar,
+      '/projects/proposals/image_fec': sidebar,
       '/projects/archive/': sidebar,
       '/community/': sidebar,
       '/community/code_of_conduct': sidebar,
@@ -86,7 +88,7 @@ module.exports = {
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/project-overview/' },
+      { text: 'Docs', link: '/community/' },
     ],
     docsDir: 'docs',
     editLinks: true,

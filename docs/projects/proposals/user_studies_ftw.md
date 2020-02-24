@@ -1,4 +1,4 @@
-# ftw: ux optimization of mental training games
+# User studies (for the win)
 
 ## Summary
 
