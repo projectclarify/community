@@ -96,4 +96,10 @@ We currently have five weekly meeting periods into which we can allocate discuss
 
 ## Remember the user(s)
 
-TODO
+Currently this project has three types of users. Other Project Clarify developers, external developer-users, and end-users. To disambiguate:
+
+- **Contributor developer user**: A developer who is contributing directly to Project Clarify such as in the form of model or infrastructure improvements, improvements to our core studies platform, etc. For existing contributors - these are your peers. You should remember the need to write code and documentation in part from their perspective of potentially needing to understand and extend your work. This includes new developers that join the project that won’t have the same discussion context.
+- **Non-contributor developer user**: A developer who is not contributing directly to Project Clarify but rather using our work in the process of doing other work such as in building and piloting machine learning enabled user experiences. They have sufficient technical skill to be able to follow clearly written software docs of the kind we will continue to maintain at [docs.cl4rify.org](https://docs.cl4rify.org).
+- **End user**: A (potentially non-developer) user such as who is using a browser-based user experience we have built to improve their mental effectiveness. Needs it to just work and needs to be regularly polled as to the clarity and usefulness of that thing.
+
+Properly serving all three types of users begins with the proposal process as described above both for informing the first type of user as well as by including a plan that considers the perspective of the latter two. This is further enacted when PR reviewers and approvers include these standards in that process. Documentation and consideration of various user perspectives are things to both plan and continuously maintain along with related software as opposed to something to be prepared or considered after the fact.
