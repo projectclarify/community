@@ -5,11 +5,10 @@ const sidebar = [
     title: 'Community',
     collapsable: true,
     children: [
-      '/community/',
-      '/community/we_the_developers',
-      '/community/founding_members',
+      '/community/how_we_work',
       '/community/code_of_conduct',
-      '/community/how_we_work'
+      '/community/we_the_developers',
+      '/community/founding_members'
     ]
   },
   {
@@ -65,11 +64,10 @@ module.exports = {
     displayAllHeaders: false,
     sidebarDepth: 2,
     sidebar: {
-      '/community/': sidebar,
+      '/community/how_we_work': sidebar,
+      '/community/code_of_conduct': sidebar,
       '/community/we_the_developers': sidebar,
       '/community/founding_members': sidebar,
-      '/community/code_of_conduct': sidebar,
-      '/community/how_we_work': sidebar,
       '/projects/': sidebar,
       '/projects/current/subproject_template/': sidebar,
       '/projects/proposals/proposal_template': sidebar,
@@ -88,7 +86,7 @@ module.exports = {
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/community/' },
+      { text: 'Docs', link: '/community/how_we_work/' },
     ],
     docsDir: 'docs',
     editLinks: true,
