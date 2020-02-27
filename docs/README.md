@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.png
 actionText: Get Started →
-actionLink: /community/
+actionLink: /community/how_we_work
 features:
   - title: People First
     details: Our community strives to put people first, whether that means letting the experience of users drive research or designing our community democratically around its contributor-members.
