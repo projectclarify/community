@@ -103,3 +103,7 @@ Currently this project has three types of users. Other Project Clarify developer
 - **End user**: A (potentially non-developer) user such as who is using a browser-based user experience we have built to improve their mental effectiveness. Needs it to just work and needs to be regularly polled as to the clarity and usefulness of that thing.
 
 Properly serving all three types of users begins with the proposal process as described above both for informing the first type of user as well as by including a plan that considers the perspective of the latter two. This is further enacted when PR reviewers and approvers include these standards in that process. Documentation and consideration of various user perspectives are things to both plan and continuously maintain along with related software as opposed to something to be prepared or considered after the fact.
+
+## Space to innovate
+
+While getting up to speed with the aforementioned process might take some time the intention is that once one has done so this process will mostly enhance our contributors ability to be even more impactful - not only in this project but otherwise in their career if they haven’t had this training before. After the proposals are approved and the epics are planned and teams are formed around these we expect that developers experience with the project will be locally isomorphic to working on a small software project with a few friends and some helpful mentors. We invite you to work through this process to find that for yourself and in that space to innovate freely. 🤗
