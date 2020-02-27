@@ -16,18 +16,13 @@ So welcome, members, and let your voice be heard.
 
 Our current engineering and research process has the primary phases of proposal, planning, rounds of sprints, and mid- and end-of-quarter status checks. We see this as a minimum standard practice and indeed as per the previous accept proposals for revisions of this.
 
-**Proposal period**: 4 weeks before the start of the quarter
-**Planning and prototyping period**: First two weeks of the quarter
-**Status check-ins**: Month 1, 2, and end of quarter.
+- **Proposal period**: 4 weeks before the start of the quarter
+- **Planning and prototyping period**: First two weeks of the quarter
+- **Status check-ins**: Month 1, 2, and end of quarter.
 
 ### Proposal period
 
 In the service of the reason tenant we conduct an open proposal and review process. This for example gives an opportunity for plans to be made further specific given expert input, for members to debate alternatives of high-level approach, and for high-level division of labor to be determined. The more specific a proposal can be about the technical plan that will be employed both (1) the easier it will be for reviewers to give helpful input on refining this as well as (2) lighten the burden of teams figuring this out on the fly during the quarter.
-
-**Four weeks before**: Proposal drafting period formally begins
-**Two weeks before**: Proposals are due
-**One week before**: Proposal reviews are completed and returned for revisions over the following three days
-**Start of quarter**: Final review and approval
 
 Project approval is equivalent to the merging of a PR that moves a proposal draft from community/projects/proposals into community/projects/current.
 
@@ -62,3 +57,35 @@ The following table summarizes these phases of the quarter flow in regard to per
 | (N%2==0) | (N%2==0) + 2 | Sprint | Teams engage in sprints, continuously updating status via GitHub issues and ZenHub and continuously integrating implementations with master branch. |
 | NA | 4,8,12 | Mid-quarters | Teams update project docs (in /community/projects/) including status narratives, stratgy summaries, and any relevant key results. |
 | -4 | -2 | Proposal drafting | Where applicable, teams propose strategies and specific methods for how projects will be extended into subsequent quarters. |
+
+## PRs and QA
+
+In order to successfully conduct a project as complex as ours we need to apply various standards to new code submissions to ensure they continue to uphold our standards for function, maintainability, usability, and security. The latter is especially relevant as some portions of the project are intended to handle clinical or otherwise private data. All of these are further relevant in that the accumulation of technical debt indeed can and will translate into a very high month-over-month dollar cost if the proper steps are not taken to prevent or mitigate it.
+
+A preliminary set of these are verified using automated tooling:
+
+| Purpose | Method |
+|---|---|
+| Maintain system-level integration | Systems-level integration testing |
+| Ensure new code is included in testing | Instrument test coverage and automated enforcement of coverage differential |
+| Code maintainability vis. docs | Instrument code documentation coverage and format |
+| Consistency of style | Instrument consistency of code style with provided auto-formatting utility configurations (with limited tooling to auto-correct) |
+| Security (auto) | Automated static analysis of security of browser code and automated notifications of CVEs in listed dependencies |
+
+Indeed many standards are difficult to instrument and are enforced first by human peer-reviewers and lastly by a senior reviewer as indicated in repository subtree-specific owners files (i.e. indicating relevant peer reviewers and approvers for that subtree).
+
+Each pull request should include a reference to the GitHub issues it either partly or fully addresses and in the latter case upon merging of the PR the referenced issue should be closed.
+
+For some branches, merging PRs into those branches will trigger a deployment of a user interface, served model, or version of project documentation into production (a method known as GitOps). Most notably, formalizing the testing, review, and approval process for updates of production assets is an industry standard best practice.
+
+## Developer metrics
+
+TODO
+
+## Meetings and communication
+
+TODO
+
+## Remember the user(s)
+
+TODO
