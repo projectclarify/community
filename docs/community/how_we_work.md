@@ -78,13 +78,21 @@ Each pull request should include a reference to the GitHub issues it either part
 
 For some branches, merging PRs into those branches will trigger a deployment of a user interface, served model, or version of project documentation into production (a method known as GitOps). Most notably, formalizing the testing, review, and approval process for updates of production assets is an industry standard best practice.
 
-## Developer metrics
-
-TODO
-
 ## Meetings and communication
 
-TODO
+In the interest of efficiency we institute a clear protocol by which communications will be handled through layers of escalation to requiring scheduling meeting time. This practice is derived from an understanding of the experience of software engineers and the need for as much uninterrupted time for deep work as possible. Such an approach is more appropriate for those who are comfortable with the digital tools we use to do so but nevertheless indeed do prioritize developer effectiveness over saving those parties onboarding time vis. new communication tools.
+
+The escalation process is as follows (steps following in succession, if necessary):
+
+- Determine whether the issue, task, question etc. can be resolved by examining currently available information. Have you done a search in the appropriate places (e.g. contents of past discussions, GitHub issues, the codebase, available working docs, or if relevant Google or StackOverflow)?
+- The former may result in you finding a relevant existing GitHub issue to comment on.
+- Comment in Slack
+  - Make an open comment in a Slack channel. Many people will see this and whoever is available first will answer.
+  - If you don’t receive an answer, direct message the person you think might know. Do not be shy in direct-messaging project leads - they want to and expect to hear from you and if your question is misdirected they will help you direct it to the right recipient.
+  - If a group discussion is relevant, we will try to have that asynchronously via Slack.
+- The previous steps should elucidate the appropriate next step, if any - file or update an issue, add an agenda item to an existing recurring meeting, or if indeed necessary schedule an additional meeting.
+
+We currently have five weekly meeting periods into which we can allocate discussion items as needed but that typically conclude as soon as all outstanding items have been covered - potentially in as little as 15min of a reserved 1h time slot. Please refer to the community calendar for updated information on the times for these.
 
 ## Remember the user(s)
 
