@@ -92,9 +92,9 @@ Forecasting: Given signal from a randomly selected single electrode, forcast a v
 
 In-painting: Given individual or context of electrodes predict signal that in-paints a zeroed or distorted section of signal.
 
-#### Simple time-correspondence
+#### Discrete temporal ordering
 
-An additional type of SSL problem we will consider is to predict whether a pair of signals correspond simply in time, i.e. predicting "does this pair correspond".
+Both on its merits as well as a point of comparison we are interested in studying the SSL problem employed by Banville et al., i.e. the natural EEG-domain analog of methods used to for audio-visual correspondence learning, where for example the order of a pair of signals from the same or different individual or multiple electrodes can be predicted.
 
 ### Signal transformation
 
