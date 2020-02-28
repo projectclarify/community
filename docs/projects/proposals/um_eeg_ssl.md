@@ -92,6 +92,10 @@ Forecasting: Given signal from a randomly selected single electrode, forcast a v
 
 In-painting: Given individual or context of electrodes predict signal that in-paints a zeroed or distorted section of signal.
 
+#### Simple time-correspondence
+
+An additional type of SSL problem we will consider is to predict whether a pair of signals correspond simply in time, i.e. predicting "does this pair correspond".
+
 ### Signal transformation
 
 One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos".
@@ -102,15 +106,17 @@ These methods will be compared with those that apply no transformation to the in
 
 ### Models
 
-TODO: If a non-deep-learning approach is planned, include it here.
+Various model alternatives are available, with distinct types being more classic convolutional types versus newer transformer-class sequence understanding models.
 
 #### ResNet
 
-TODO
+With our current thinking, the application of a ResNet style model would first require a transformation of the signal to first be image- or movie-like before being able to convolve over those two or three dimensions. Indeed the processing that precedes this (by analogy to classic methods of speech signal transformation) significantly affects what features are present to be mined.
 
 #### Reformer
 
-TODO
+With these models raw signal data (albeit perhaps down-sampled) could more naturally be processed in its raw form.
+
+TODO: A concise bit of explanation about transformer and reformer architecture mentioning sequence understanding specifically.
 
 ## Evaluation metrics
 
