@@ -68,6 +68,30 @@ The DEAP dataset includes data from 32 participants each watching 40 one-minute 
 
 ## Methods
 
+### Augmentation
+
+EEG-domain analogs of data augmentation techniques standard in other domains will be applied. As the purpose for these techniques is to improve generalization they should be designed around obscuring signal dimensions beyond which we hope to generalize. For example, in the simplest case, if we wish to be able to generalize beyond the exact numerical values of a particular acquisition we may add gaussian noise or introduce simple mean shifting.
+
+If we wish to learn representations that are less dependent on data from individual electrodes we can apply whole or partial electrode signal dropout (the time-series analog of black patch augmentation).
+
+If we wish to learn representations that are wholly agnostic to electrode positioning or number we may wish to experiment with the combination of this together with random electrode shuffling without downstream signal preprocessing - simply feeding a random re-ordering of the electrode signal list into the modeling function to determine a representation without knowing the electrode the data came from.
+
+### Self-suprvised problems
+
+#### Triplet similarity
+
+TODO: Given a triplet of electrode signal samples (e.g. a vector of like 1-2s of signal), predict which two out of the three are acquired closer in time or space. This problem can ratchet in regard to the level of distinction needed especially in the time dimension (e.g. initially learn with recognizing two adjacent signals are different from one acquired minutes later then later three signals over a short period where two are slightly closer than a third).
+
+A useful loss to consider in this context would be one like we are using in the parallel FEx understanding / FEC work that is agnostic to distances beyond a certain threshold such that far distances in irrelevant regions don't dilute signal regarding fine distinctions in relevant ones.
+
+#### Individual or contextual prediction
+
+One class of SSL problem would involve the prediction of EEG signal, whether into the future (forecasting) or considering future signal as context (in-painting).
+
+Forecasting: Given signal from a randomly selected single electrode, forcast a vector of values for that electrode. Alternatively, provided a vector of query electrode measurements together with measurements of neighbors, forecast the measurements of the query electrode.
+
+In-painting: Given individual or context of electrodes predict signal that in-paints a zeroed or distorted section of signal.
+
 ### Signal transformation
 
 One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos".
@@ -75,10 +99,6 @@ One method of signal transformation we will employ will be the transformation of
 TODO: Describe exactly what methods we'll try in this regard.
 
 These methods will be compared with those that apply no transformation to the input signal.
-
-### Augmentation
-
-- These methods will differ based on whether the input signal has been image-transformed or not
 
 ### Models
 
