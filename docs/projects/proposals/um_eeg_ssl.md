@@ -18,6 +18,14 @@ In domains where labels are hard to obtain self-supervised learning has shown pr
 
 All personnel handling clinical data will first be trained in the use of relevant protocols and systems.
 
+### Simulation
+
+Many of the available datasets are complex to navigate in many regards. When it comes time to debug models we will want a ground-truth that we can rely upon. In the context of image understanding, we can easily rely on the semantic labels of human annotators. Further in that domain, model performance can be characterized in terms of variation across label subsets which are not as available in the EEG domain.
+
+To provide a most accessible alternative for the EEG domain we will make use of open source EEG simulation tools to simulate signals of a variety of types. Representations of these can be characterized, for example, in regard to how consistent proximities of learned representations are of some engineered metric of similarity according to simulated characteristics.
+
+TODO: Survey of existing EEG sim tools.
+
 ### TUH-EEG Corpus
 
 Obeid, Iyad, and Picone (2016)
@@ -62,17 +70,19 @@ The DEAP dataset includes data from 32 participants each watching 40 one-minute 
 
 ### Signal transformation
 
-TODO
+One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos".
+
+TODO: Describe exactly what methods we'll try in this regard.
+
+These methods will be compared with those that apply no transformation to the input signal.
 
 ### Augmentation
 
-TODO
+- These methods will differ based on whether the input signal has been image-transformed or not
 
 ### Models
 
-#### Non-deep learning approaches
-
-TODO
+TODO: If a non-deep-learning approach is planned, include it here.
 
 #### ResNet
 
@@ -84,21 +94,24 @@ TODO
 
 ## Evaluation metrics
 
-Besides eval performance on the primary trained task we will make use of several additional means of evaluating model quality:
+Besides eval performance on the primary trained task we will make use of several additional means of evaluating model quality by way of cross-modal image representations. These will be obtained by applying the EEG embedding model to the EEG portion of samples from a multi-modal (EEG + image + ...) dataset then associating the obtained embedding with the image portion of the multi-modal sample.
 
 ### Cross-modal FEC representation consistency
 
-TODO
+Given our previous work training models on the FEC dataset for expression embedding we have the means to compare embeddings produced from those models to ones preoduced by way of the cross-modal representation swapping method described above. This can involve a triplet-based similarity metric or something simpler like a pairwise comparison of distances. One challenge with the latter may be that accuracy of near distances may be washed out in irrelevant variation in far distances perhaps indicating the former as a preferable approach.
 
 ### Cross-modal state similarity triplets
 
-TODO
+If funds and clinical data usage approvals allow, we may obtain similarity labels for triplets of images obtained from multimodal datasets. The procedure for this will exactly parallel that of the construction of the Facial Expression Correspondence (FEC) dataset but be performed at a far smaller scale (possibly by us ourselves). Both having such annotations as well as having cross-modality representations described as above we can compute a metric of the similarity of distances of the learned representations and assigned similarity labels in an identical manner as is being used in our ongoing image FEC work.
 
 ## Qualitative evaluation
 
-### Cross-modal image ranking
+Cross-modality image representations can be used for qualitative analysis using standard methods for this in the image domain
+(e.g. similarity lookup, tSNE embedding with image glyphs, etc.).
 
-TODO
+## Distribution of labor
+
+TBD, please leave as such until an initial draft is complete.
 
 ## References
 
