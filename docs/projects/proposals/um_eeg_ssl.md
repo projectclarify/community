@@ -94,6 +94,18 @@ Forecasting: Given signal from a randomly selected single electrode, forcast a v
 
 In-painting: Given individual or context of electrodes predict signal that in-paints a zeroed or distorted section of signal.
 
+We anticipate the in-painting problem to be more easily learnable especially for shorter regions.
+
+This class of problem requires a means of comparing two signals - one predicted by a DNN and the other a true signal.
+
+##### Non DNN losses
+
+TODO: Describe these. E.g. the euclidean distance or another vector comparison. E.g. distances that follow either signal having been frequency transformed or transformed in some other way.
+
+##### Neural network losses
+
+TODO: Talk a bit about neural network based approaches for comparing a generated signal to a real signal. What are the strengths of the adversarial learning approach? Are there other ways to ue neural networks to compare a real to a generated signal than an adversarial loss that might be more stable to train?
+
 #### Discrete temporal ordering
 
 Both on its merits as well as a point of comparison we are interested in studying the SSL problem employed by Banville et al., i.e. the natural EEG-domain analog of methods used to for audio-visual correspondence learning, where for example the order of a pair of signals from the same or different individual or multiple electrodes can be predicted. A natural extension of this is a prediction of the temporal distance not just the sign of this.
