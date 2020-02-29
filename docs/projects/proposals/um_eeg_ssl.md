@@ -128,9 +128,11 @@ With our current thinking, the application of a ResNet style model would first r
 
 #### Reformer
 
-With these models raw signal data (albeit perhaps down-sampled) could more naturally be processed in its raw form.
+Sequence understanding models have improved over time in regard to their ability to "remember" information over large distances with advances through classic RNNs, LSTMs, and more recently Transformers that for example have been able to perform such long-distance sequence integration to solve sequence translation, summarization, generation, labeling, etc. tasks with longer sequences than possible previously and possibly at some point in the future this sentence itself (you see the challenge).
 
-TODO: A concise bit of explanation about transformer and reformer architecture mentioning sequence understanding specifically.
+Recently Kitaev and Kaiser (2020; [post](https://ai.googleblog.com/2020/01/reformer-efficient-transformer.html), [paper](https://arxiv.org/abs/2001.04451)) describe the Reformer, a dramatically-improved Transformer-class model that scales in input sequence length by O(L\*log(L)) in contrast to the previous generation's O(L^2) - manifesting intuitively as an increase in the feasible scale of summarization from articles to books.
+
+Text sequence summarization and EEG signal embedding are effectively the same problem modulo the step in the former where a learned representation is used to generate another sequence. We anticipate the use of Reformers then for "summarization" of EEG signals to permit us to understand the novel that is your cortical activity sampled at a high rate across 64 electrodes for several minutes in contrast to the article that is a single channel for only a few seconds.
 
 ## Evaluation metrics
 
