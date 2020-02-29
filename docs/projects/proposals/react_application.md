@@ -27,6 +27,13 @@ As this work is still in an exploratory phase there are several questions still 
 - If we were to use react-airframe, is there a ui design kit to use e.g. for sketch or figma? Are there comparable alternatives where this is available?
 - How do we feel about the test coverage of react-airframe vs alternatives?
 
+## Airframe screenshots
+
+Here's what the stock Airframe UI gives us (themed in indigo):
+
+![airframeui](/react-airframe-fig.png)
+
+
 ## Development
 
 There are a few initial prototyping steps that can be performed to obtain more info:
@@ -34,3 +41,25 @@ There are a few initial prototyping steps that can be performed to obtain more i
 2. Attempt to deploy it to firebase hosting (and check for jank and bugs)
 3. Integrate firebase auth and database (demo reads and writes) with react-airframe
 4. Check for security warnings on setting up react-airframe and if these need to be fixed try to do so while maintaining desired functionality
+
+## Provisional page structure
+
+How we might structure the application with a focus on mental training activities and in the future review of stats in this regard (as well as background-acquired stats):
+
+- Sign in with Google (for now the landing page)
+- Sign up wizard
+  - (in the future) Possibly several survey steps
+  - Code entry, validation, and confirmation (single page that changes state instead of step change)
+    - Please provide a code
+    - Confirming code (loading animation)
+    - Code confirmed, continuing to dashboard
+- Dashboard (for now defaults to the one available session view)
+  - Session view showing a series of cards, accordion, list etc. that correspond to a series of steps to perform
+    - (in the future) Nest the session view inside the navigation structure of the sessions view that shows many available sessions. Upon clicking on one probably page change to that session but maybe modal (followed by second modal for activity? prob not)
+  - (in the future) A user data view if that becomes relevant e.g. figures of your state or cog performance over time?
+  - (in the future) User profile and settings view if it becomes relevant
+- Full screen activity modal that is launched by clicking on one of the session steps
+  - Activities have the wizard structure but where step icons are very minimal (possibly just progress bars)
+- You are now logged out (log back in)
+- You're on the waiting list (for invalid join code)
+
