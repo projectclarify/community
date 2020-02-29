@@ -82,11 +82,11 @@ If we wish to learn representations that are wholly agnostic to electrode positi
 
 Our use of triplet similarity losses in the context of FEx understanding extends nicely to this one for the same purpose of state understanding. To review, the one (1) and two (2) anchor formulations of this proposed by Schroff, Kalenichenko, and Philibin (2015) and subsequently by Agarwala and Vemulapalli (2019) are given below formulaeically (where d(e_i, e_j) is the l2 distance and d is some chosen envelope size):
 
-[TODO: Insert triplet loss formulae]
+![TripletLossFormulae](/triplet-loss-formulae.png)
 
 Geometrically, for a single triplet, the latter can be imagined (Figure 1) as the extent to which a third-element query has been successfully moved to the outside of a certain region - its placement inside of which corresponds to falsely considering it more similar to one element of the remaining pair than the model itself predicted those to be to each-other.
 
-[TODO: Insert loss Figure 1]
+![TripletLossFig](/triplet-loss-fig.png)
 
 Figure 1. Given two similar points in embedding space (blue) the direction of optimization encouraged by the loss function is illustrated for an initial (red; higher loss) and subsequent (yellow; lower loss) up to a loss value of zero (green) beyond a 𝛿-width envelope of the domain. The effect optimization pressure on elements within different sub-domain is contrasted for the single-anchor (1) and dual-anchor (2) loss functions illustrating the added informativeness of the latter. Outside of the relevant region (union) further increases in third-element distances have no added impact on the loss **thereby preventing the dilution of importance of making distinctions within the interior of that region**.
 
