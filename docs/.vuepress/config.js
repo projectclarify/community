@@ -30,8 +30,7 @@ const sidebar = [
         children: [
           '/projects/proposals/user_studies_ftw',
           '/projects/proposals/um_eeg_ssl',
-          '/projects/proposals/image_fec',
-          '/projects/proposals/react_application'
+          '/projects/proposals/image_fec'
         ]
       },
       {
@@ -75,7 +74,6 @@ module.exports = {
       '/projects/proposals/user_studies_ftw': sidebar,
       '/projects/proposals/um_eeg_ssl': sidebar,
       '/projects/proposals/image_fec': sidebar,
-      '/projects/proposals/react_application': sidebar,
       '/projects/archive/': sidebar,
       '/community/': sidebar,
       '/community/code_of_conduct': sidebar,
