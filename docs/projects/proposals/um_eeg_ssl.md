@@ -84,6 +84,8 @@ TODO: Given a triplet of electrode signal samples (e.g. a vector of like 1-2s of
 
 A useful loss to consider in this context would be one like we are using in the parallel FEx understanding / FEC work that is agnostic to distances beyond a certain threshold such that far distances in irrelevant regions don't dilute signal regarding fine distinctions in relevant ones.
 
+For development purposes, if simulation data is being used, we could construct triplets based on the similarity of those simulation parameters.
+
 #### Individual or contextual prediction
 
 One class of SSL problem would involve the prediction of EEG signal, whether into the future (forecasting) or considering future signal as context (in-painting).
@@ -94,7 +96,7 @@ In-painting: Given individual or context of electrodes predict signal that in-pa
 
 #### Discrete temporal ordering
 
-Both on its merits as well as a point of comparison we are interested in studying the SSL problem employed by Banville et al., i.e. the natural EEG-domain analog of methods used to for audio-visual correspondence learning, where for example the order of a pair of signals from the same or different individual or multiple electrodes can be predicted.
+Both on its merits as well as a point of comparison we are interested in studying the SSL problem employed by Banville et al., i.e. the natural EEG-domain analog of methods used to for audio-visual correspondence learning, where for example the order of a pair of signals from the same or different individual or multiple electrodes can be predicted. A natural extension of this is a prediction of the temporal distance not just the sign of this.
 
 ### Signal transformation
 
