@@ -24,7 +24,7 @@ Many of the available datasets are complex to navigate in many regards. When it 
 
 To provide a most accessible alternative for the EEG domain we will make use of open source EEG simulation tools to simulate signals of a variety of types. Representations of these can be characterized, for example, in regard to how consistent proximities of learned representations are of some engineered metric of similarity according to simulated characteristics.
 
-TODO: Survey of existing EEG sim tools.
+Initial "simulations" will just be gaussian noise or simple compositions of basic wave functions that take a minute or two to write in Python with progressive extension to more complex means of simulation (and an expanding review of the available tools) in an iterative fashion.
 
 ### TUH-EEG Corpus
 
@@ -80,9 +80,19 @@ If we wish to learn representations that are wholly agnostic to electrode positi
 
 #### Triplet similarity
 
-TODO: Given a triplet of electrode signal samples (e.g. a vector of like 1-2s of signal), predict which two out of the three are acquired closer in time or space. This problem can ratchet in regard to the level of distinction needed especially in the time dimension (e.g. initially learn with recognizing two adjacent signals are different from one acquired minutes later then later three signals over a short period where two are slightly closer than a third).
+Our use of triplet similarity losses in the context of FEx understanding extends nicely to this one for the same purpose of state understanding. To review, the one (1) and two (2) anchor formulations of this proposed by Schroff, Kalenichenko, and Philibin (2015) and subsequently by Agarwala and Vemulapalli (2019) are given below formulaeically (where d(e_i, e_j) is the l2 distance and d is some chosen envelope size):
 
-A useful loss to consider in this context would be one like we are using in the parallel FEx understanding / FEC work that is agnostic to distances beyond a certain threshold such that far distances in irrelevant regions don't dilute signal regarding fine distinctions in relevant ones.
+[TODO: Insert triplet loss formulae]
+
+Geometrically, for a single triplet, the latter can be imagined (Figure 1) as the extent to which a third-element query has been successfully moved to the outside of a certain region - its placement inside of which corresponds to falsely considering it more similar to one element of the remaining pair than the model itself predicted those to be to each-other.
+
+[TODO: Insert loss Figure 1]
+
+Figure 1. Given two similar points in embedding space (blue) the direction of optimization encouraged by the loss function is illustrated for an initial (red; higher loss) and subsequent (yellow; lower loss) up to a loss value of zero (green) beyond a 𝛿-width envelope of the domain. The effect optimization pressure on elements within different sub-domain is contrasted for the single-anchor (1) and dual-anchor (2) loss functions illustrating the added informativeness of the latter. Outside of the relevant region (union) further increases in third-element distances have no added impact on the loss **thereby preventing the dilution of importance of making distinctions within the interior of that region**.
+
+Given a triplet of electrode signal samples (e.g. a vector of like 1-2s of signal) we will predict which two out of the three are closer in regard to some chosen metric. For example, this may be closeness in regard to time, space, a combination of those, and/or an external measure (e.g. heart rate) or label. To keep things simple we will first just try it out with triplets constructed on the basis of similarity in time.
+
+As advocated by Agarwala and Vemulapalli (2019) for the domain of FEx understanding, the difficulty of this problem can ratchet as examples with more similar representations are sampled and included in training. An interesting and probably useful feature but we will not worry about the training schedule or sample distribution until we have tried some experiments with some more or less canonical choices.
 
 For development purposes, if simulation data is being used, we could construct triplets based on the similarity of those simulation parameters.
 
@@ -112,11 +122,7 @@ Both on its merits as well as a point of comparison we are interested in studyin
 
 ### Signal transformation
 
-One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos".
-
-TODO: Describe exactly what methods we'll try in this regard.
-
-These methods will be compared with those that apply no transformation to the input signal.
+One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos". What exact methods of signal transformation will be needed, will result from experimentation in-flight relative to nicely informative eval metrics and we leave specificity on this until then.
 
 ### Models
 
@@ -133,6 +139,8 @@ Sequence understanding models have improved over time in regard to their ability
 Recently Kitaev and Kaiser (2020; [post](https://ai.googleblog.com/2020/01/reformer-efficient-transformer.html), [paper](https://arxiv.org/abs/2001.04451)) describe the Reformer, a dramatically-improved Transformer-class model that scales in input sequence length by O(L\*log(L)) in contrast to the previous generation's O(L^2) - manifesting intuitively as an increase in the feasible scale of summarization from articles to books.
 
 Text sequence summarization and EEG signal embedding are effectively the same problem modulo the step in the former where a learned representation is used to generate another sequence. We anticipate the use of Reformers then for "summarization" of EEG signals to permit us to understand the novel that is your cortical activity sampled at a high rate across 64 electrodes for several minutes in contrast to the article that is a single channel for only a few seconds.
+
+It may be interesting to make a comparison across eval metrics between previous generation Transformers and Reformers as the size of the input sequence grows.
 
 ## Evaluation metrics
 
@@ -158,4 +166,4 @@ TBD, please leave as such until an initial draft is complete.
 ## References
 
 1. Obeid, Iyad, and Joseph Picone. "The temple university hospital EEG data corpus." Frontiers in neuroscience 10 (2016): 196. [link](https://www.frontiersin.org/articles/10.3389/fnins.2016.00196/full)
-
+2. Kitaev, Nikita, Łukasz Kaiser, and Anselm Levskaya. "Reformer: The Efficient Transformer." arXiv preprint arXiv:2001.04451 (2020). [link](https://arxiv.org/pdf/2001.04451.pdf)
