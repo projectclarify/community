@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: yarn docs:build
       - name: Upgrade setuptools
-        run: sudo apt-get install -y python-setuptools
+        run: sudo apt-get install -y python3-setuptools
       - name: Nbconvert dependency
         run: pip3 install --upgrade pip && pip3 install jupyter
       - name: Build codelabs
