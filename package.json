@@ -11,9 +11,13 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:build-codelabs": "sh codelabs/nbconvert.sh && node ./codelabs/build-codelabs.js"
   },
   "dependencies": {
-    "@github/clipboard-copy-element": "^1.1.2"
+    "@github/clipboard-copy-element": "^1.1.2",
+    "cheerio": "^1.0.0-rc.3",
+    "fs-extra": "^8.1.0",
+    "marked": "^0.8.0"
   }
 }
