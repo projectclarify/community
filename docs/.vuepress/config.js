@@ -21,7 +21,7 @@ const sidebar = [
         collapsable: true,
         children: [
           '/projects/current/',
-          '/projects/current/subproject_template/'
+          '/projects/current/image_fec/working_doc'
         ]
       },
       {
@@ -29,8 +29,7 @@ const sidebar = [
         collapsable: true,
         children: [
           '/projects/proposals/user_studies_ftw',
-          '/projects/proposals/um_eeg_ssl',
-          '/projects/proposals/image_fec'
+          '/projects/proposals/um_eeg_ssl'
         ]
       },
       {
@@ -76,11 +75,10 @@ module.exports = {
       '/community/we_the_developers': sidebar,
       '/community/founding_members': sidebar,
       '/projects/': sidebar,
-      '/projects/current/subproject_template/': sidebar,
+      '/projects/current/image_fec/working_doc': sidebar,
       '/projects/proposals/proposal_template': sidebar,
       '/projects/proposals/user_studies_ftw': sidebar,
       '/projects/proposals/um_eeg_ssl': sidebar,
-      '/projects/proposals/image_fec': sidebar,
       '/projects/archive/': sidebar,
       '/community/': sidebar,
       '/community/code_of_conduct': sidebar,
