@@ -20,7 +20,7 @@ jobs:
       - name: Nbconvert dependency
         run: pip3 install --upgrade pip && pip3 install jupyter
       - name: Build codelabs
-        run: yarn docs:build-codelabs
+        run: export PATH=$PATH:/home/runner/.local/bin && yarn docs:build-codelabs
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
