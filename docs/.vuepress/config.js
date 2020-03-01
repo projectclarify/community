@@ -49,7 +49,14 @@ const sidebar = [
       '/developer/',
       '/developer/dev-oss/',
       '/developer/dev-fx/',
-      '/developer/dev-ml/',
+      {
+        title: 'Machine Learning',
+	collapsable: false,
+	children: [
+	  '/developer/dev-ml/',
+          '/developer/dev-ml/codelabs'
+	]
+      },
       '/developer/dev-ftw/',
       '/developer/dev-docs/'
     ],
@@ -81,6 +88,7 @@ module.exports = {
       '/developer/dev-oss/': sidebar,
       '/developer/dev-fx/': sidebar,
       '/developer/dev-ml/': sidebar,
+      '/developer/dev-ml/codelabs': sidebar,
       '/developer/dev-ftw/': sidebar,
       '/developer/dev-docs/': sidebar,
     },
