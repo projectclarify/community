@@ -96,25 +96,43 @@ As advocated by Agarwala and Vemulapalli (2019) for the domain of FEx understand
 
 For development purposes, if simulation data is being used, we could construct triplets based on the similarity of those simulation parameters.
 
-#### Individual or contextual prediction
+#### Generative problems
 
-One class of SSL problem would involve the prediction of EEG signal, whether into the future (forecasting) or considering future signal as context (in-painting).
+Inspired by successes of the in-painting and forecasting self-supervision problems in the image (Pathak et al., 2016, ...), video (cite several), and numeric time-series (cite several) domains (Table N) we will explore the potential of analogous generative, self-supervisory in-painting or forecasting problems in the EEG domain. Further by analogy, the means by which the generated content is compared to the true content will be a subject of study (including the consideration of DNN-based loss-learning methods such as GAN-class approaches).
 
-Forecasting: Given signal from a randomly selected single electrode, forcast a vector of values for that electrode. Alternatively, provided a vector of query electrode measurements together with measurements of neighbors, forecast the measurements of the query electrode.
+| Citation | Model | Problem | Loss | Finding |
+|---|---|---|---|---|
+| Pathak et al. (2016) | CNN E/D |  | Advesarial |   |
+| Jenni and Favaro (2018) |  |   |   |   |
+| Singh et al. (2018) |   |   |   |   |
 
-In-painting: Given individual or context of electrodes predict signal that in-paints a zeroed or distorted section of signal.
+Table N. Consolidated summary of generative SSL literature.
 
-We anticipate the in-painting problem to be more easily learnable especially for shorter regions.
+##### Problems
 
-This class of problem requires a means of comparing two signals - one predicted by a DNN and the other a true signal.
+Below we describe a variety of EEG-domain generative SSL problems which roughly can be grouped into the categories of in-painting (knowing future signal) and forecasting (not knowing future signal).
 
-##### Non DNN losses
+In-painting:
+1. Given a sequence of signal from a signal electrode for time [0, N] with some distorted subinterval [i,j], predict the non-distorted version of the [i,j] interval given the full interval [0, N] as input.
+2. Extend the previous to the multi-electrode case but where still only one interval of the signal of one electrode is distorted and is being predicted.
+3. Extend the previous to the multi-electrode distortion, multi-electrode prediction case.
 
-TODO: Describe these. E.g. the euclidean distance or another vector comparison. E.g. distances that follow either signal having been frequency transformed or transformed in some other way.
+Forecasting:
+1. Given electrode signal for time interval [0,N] predict future signal region [i,j].
+2. Given electrode signal from multiple electrodes over [0, N], predict signal for one of those over [i,j].
+3. Given the same input as (2), predict the signal for multiple electrodes over [i,j].
 
-##### Neural network losses
+In all of the above we anticipate a natural progression of difficulty from one to multiple electrodes, from smaller to larger regions, and from present-prediction/in-painting to future-prediction/forecasting.
 
-TODO: Talk a bit about neural network based approaches for comparing a generated signal to a real signal. What are the strengths of the adversarial learning approach? Are there other ways to ue neural networks to compare a real to a generated signal than an adversarial loss that might be more stable to train?
+##### Losses
+
+Adversarial methods can be an effective means to learn a loss function to support the generation of realistic content in domains where it is otherwise difficult to express a good loss function. One reason this can be a challenge is when the learning problem is under-specified, i.e. there are many possible "good answers" given some input. Given a standard L2 difference loss this problem tends to manifest as generated content exhibiting an averaging of these modes in what can best be described as blurry. In the image domain this is litereal image blurriness but for the same reason we would anticipate these losses to produce something analagous to blurriness in e.g. the EEG domain if used there. Adversarial losses, in contrast, learn a neural network to evaluate the quality of the generated content and when applied correctly have the tendency to produce sharper and more realistic generated content. We will thus seek to explore the value of either or the combination of these loss types.
+
+It is worth noting that we may find these generative SSL methods paired with a non-adversarial DNN loss are initially sufficient to learn useful representations of EEG signals. Further, in exploring adversarial DNN-based losses, we would (1) plan to compare these to the former as well as (2) expect losses that combine both types to achieve better results.
+
+##### Strategy
+
+Thus, our strategy will be to first learn to in-paint small regions and compare the generated content to the true content with a simple L2 timestep-wise loss. On this foundation we'll build an exploration of both more challenging but potentially more fruitful adversarial methods and forward-prediction/forecasting.
 
 #### Discrete temporal ordering
 
