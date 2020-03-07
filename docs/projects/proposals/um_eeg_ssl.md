@@ -157,6 +157,10 @@ One method of signal transformation we will employ will be the transformation of
 
 Various model alternatives are available, with distinct types being more classic convolutional types versus newer transformer-class sequence understanding models.
 
+#### Non-ML Baseline
+
+We may elect to implement a simple, solely signal processing-based method for EEG signal embedding. A naive approach would be to simply perform some sort of time-frequency decomposition (such as those listed in the "Signal Transformation" section), and directly feed the results into a clustering algorithm to lower dimensionality. Euclidean distances and the likes could then be computed straightforwardly. The results of such a model would serve as a baseline when evaluating the various ML methods that follow.
+
 #### ResNet
 
 With our current thinking, the application of a ResNet style model would first require a transformation of the signal to first be image- or movie-like before being able to convolve over those two or three dimensions. Indeed the processing that precedes this (by analogy to classic methods of speech signal transformation) significantly affects what features are present to be mined.
