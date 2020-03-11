@@ -140,11 +140,26 @@ Both on its merits as well as a point of comparison we are interested in studyin
 
 ### Signal transformation
 
+We may compare several different approaches of initial transformation of the raw EEG signal, each naturally associated with a SSL model that will be applied following such transformations.
+
+| Citation | Signal Transformation | Model | Extracted Information |
+|---|---|---|---|
+| ([Birjandtalab et al., 2016](https://ieeexplore.ieee.org/document/7590826)) | PSD | Clustering, K-NN | Freq |
+| ([Thiyagarajan et al., 2017](https://ieeexplore.ieee.org/document/8257016)) | STFT | CNN | Freq, Temporal |
+| ([Pandey et al., 2018](https://link.springer.com/chapter/10.1007/978-981-10-7641-1_10)) | Wavelet | CNN | Freq, Temporal |
+| ([Robinson et al., 2019](https://ieeexplore.ieee.org/document/8914184)) | Freq Decomposition, CSP| R-CNN | Freq, Temporal, Spatial |
+
+The drastic differences between many of these transformations alludes to their respective focuses on different features in the signal domain. Therefore, it may be useful to apply several signal transformation methods in conjunction, depending on the specific architecture of the model. In addition, design of different evaluation metrics are needed should we decide to compare results of signal transformation in isolation to a classification model.
+
 One method of signal transformation we will employ will be the transformation of EEG signals into the form of, intuitively, "heatmap videos". What exact methods of signal transformation will be needed, will result from experimentation in-flight relative to nicely informative eval metrics and we leave specificity on this until then.
 
 ### Models
 
 Various model alternatives are available, with distinct types being more classic convolutional types versus newer transformer-class sequence understanding models.
+
+#### Non-ML Baseline
+
+We may elect to implement a simple, solely signal processing-based method for EEG signal embedding. A naive approach would be to simply perform some sort of time-frequency decomposition (such as those listed in the "Signal Transformation" section), and directly feed the results into a clustering algorithm to lower dimensionality. Euclidean distances and the likes could then be computed straightforwardly. The results of such a model would serve as a baseline when evaluating the various ML methods that follow.
 
 #### ResNet
 
